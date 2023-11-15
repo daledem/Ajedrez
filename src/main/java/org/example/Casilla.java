@@ -55,4 +55,14 @@ public class Casilla {
 
         return igual;
     }
+
+    public int getCodPieza(){
+        int cod = 0;
+
+        if (this.pieza != null){
+            cod = this.pieza.getCodId();
+        }
+
+        return cod;
+    }
 }

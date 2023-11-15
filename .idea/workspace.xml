@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Modelo de dominio y parte de la logica de negocio terminadas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Alfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Alfil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Caballo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Caballo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Peon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Peon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pieza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pieza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Reina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Reina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Rey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Rey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Torre.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +53,17 @@
       <workItem from="1699633886927" duration="4401000" />
       <workItem from="1699695028588" duration="12518000" />
       <workItem from="1699780123001" duration="10548000" />
+      <workItem from="1699899589731" duration="741000" />
+      <workItem from="1700046255148" duration="6140000" />
     </task>
+    <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
+      <created>1699899727207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699899727207</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,5 +79,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modelo de dominio y parte de la logica de negocio terminadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modelo de dominio y parte de la logica de negocio terminadas" />
   </component>
 </project>
