@@ -6,6 +6,9 @@ public class Partida {
 
     private Tablero tablero;
     private boolean terminado;
+    private int ganador;
+    private Rey reyBlanco;
+    private Rey reyNegro;
 
     public Partida(){
         this.tablero = new Tablero();
@@ -20,7 +23,10 @@ public class Partida {
         this.tablero.setPieza(new Caballo(Pieza.Blanco),1,2);
         this.tablero.setPieza(new Alfil(Pieza.Blanco),1,3);
         this.tablero.setPieza(new Reina(Pieza.Blanco),1,4);
-        this.tablero.setPieza(new Rey(Pieza.Blanco), 1, 5);
+
+        this.reyBlanco = new Rey(Pieza.Blanco);
+        this.tablero.setPieza(this.reyBlanco, 1, 5);
+
         this.tablero.setPieza(new Alfil(Pieza.Blanco),1,6);
         this.tablero.setPieza(new Caballo(Pieza.Blanco),1,7);
         this.tablero.setPieza(new Torre(Pieza.Blanco),1,8);
@@ -29,14 +35,19 @@ public class Partida {
             this.tablero.setPieza(new Peon(Pieza.Negro),7,i + 1);
         }
 
-        this.tablero.setPieza(new Torre(Pieza.Negro),1,1);
-        this.tablero.setPieza(new Caballo(Pieza.Negro),1,2);
-        this.tablero.setPieza(new Alfil(Pieza.Negro),1,3);
-        this.tablero.setPieza(new Reina(Pieza.Negro),1,4);
-        this.tablero.setPieza(new Rey(Pieza.Negro), 1, 5);
-        this.tablero.setPieza(new Alfil(Pieza.Negro),1,6);
-        this.tablero.setPieza(new Caballo(Pieza.Negro),1,7);
-        this.tablero.setPieza(new Torre(Pieza.Negro),1,8);
+        this.tablero.setPieza(new Torre(Pieza.Negro),7,1);
+        this.tablero.setPieza(new Caballo(Pieza.Negro),7,2);
+        this.tablero.setPieza(new Alfil(Pieza.Negro),7,3);
+        this.tablero.setPieza(new Reina(Pieza.Negro),7,4);
+
+        this.reyNegro = new Rey(Pieza.Negro);
+        this.tablero.setPieza(new Rey(Pieza.Negro), 7, 5);
+
+        this.tablero.setPieza(new Alfil(Pieza.Negro),7,6);
+        this.tablero.setPieza(new Caballo(Pieza.Negro),7,7);
+        this.tablero.setPieza(new Torre(Pieza.Negro),7,8);
+
+        this.ganador = -1;
     }
 
     public boolean movePieza(Casilla casillaOrg, Casilla casillaDest){
@@ -73,12 +84,6 @@ public class Partida {
 
         if (moved && pieza.getCodId() == Pieza.Peon){
             Peon aux = (Peon) pieza;
-            aux.moved();
-        } else if (moved && pieza.getCodId() == Pieza.Rey) {
-            Rey aux = (Rey) pieza;
-            aux.moved();
-        } else if (moved && pieza.getCodId() == Pieza.Torre) {
-            Torre aux = (Torre) pieza;
             aux.moved();
         }
 
@@ -140,4 +145,15 @@ public class Partida {
     public boolean isTerminado(){
         return this.terminado;
     }
+
+    public int getGanador(){
+        if (this.reyBlanco.isCapturado()){
+            this.ganador = Pieza.Negro;
+        } else if (this.reyNegro.isCapturado()) {
+            this.ganador = Pieza.Blanco;
+        }
+
+        return this.ganador;
+    }
+
 }

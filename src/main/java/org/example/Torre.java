@@ -2,20 +2,9 @@ package org.example;
 
 public class Torre extends Pieza{
 
-    private boolean moved;
-
     public Torre(int color) {
         super(color);
         this.setCodId(Pieza.Torre);
-        this.moved = false;
-    }
-
-    public boolean hasMoved(){
-        return this.moved;
-    }
-
-    public void moved(){
-        this.moved = true;
     }
 
     @Override

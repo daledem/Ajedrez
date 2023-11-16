@@ -1,21 +1,12 @@
 package org.example;
 
 public class Rey extends Pieza{
-
-    private boolean moved;
+    private boolean capturado;
 
     public Rey(int color) {
         super(color);
         this.setCodId(Pieza.Rey);
-        this.moved = false;
-    }
-
-    public boolean hasMoved(){
-        return this.moved;
-    }
-
-    public void moved(){
-        this.moved = true;
+        this.capturado = false;
     }
 
     @Override
@@ -30,5 +21,13 @@ public class Rey extends Pieza{
         }
 
         return move;
+    }
+
+    public boolean isCapturado(){
+        return this.capturado;
+    }
+
+    public void capturado(){
+        this.capturado = true;
     }
 }
