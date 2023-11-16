@@ -87,8 +87,9 @@ public class Partida {
 
     //Pre: color debe ser un color de la clase estatica Pieza, largo indica si el enroque se va realizar con la
     // torre de la columna 1 si es true o con la de la columna 8 si es false
-    //Post: Realiza un enroque con las casillas en las que se encontraban el rey y la torre de la columna indicada
-    // sin importar si se han movido o no
+    //Post: Devuelve verdad si se realiza un enroque con las casillas en las que se encontraban el rey y
+    // la torre de la columna indicada sin importar si se han movido o no, siempre que no haya otras piezas
+    // entre ambas casillas. Devuelve falso en caso contrario
     public boolean enrocar(int color, boolean largo){
         int fila;
         int columnaTorre;

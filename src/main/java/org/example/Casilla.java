@@ -36,10 +36,6 @@ public class Casilla {
         return this.pieza;
     }
 
-    public int getColorPieza(){
-        return this.pieza.getColor();
-    }
-
     public boolean equals(Object object){
         boolean igual = false;
 
@@ -64,5 +60,15 @@ public class Casilla {
         }
 
         return cod;
+    }
+
+    public int getColorPieza(){
+        int color = -1;
+
+        if (this.pieza != null){
+            color = this.pieza.getColor();
+        }
+
+        return color;
     }
 }
