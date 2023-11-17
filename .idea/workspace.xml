@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Clase jugador creada">
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Cambios en la forma de detectar cuando una partida a terminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Rey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Rey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Torre.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,8 @@
       <workItem from="1699899589731" duration="741000" />
       <workItem from="1700046255148" duration="6322000" />
       <workItem from="1700123777439" duration="3094000" />
-      <workItem from="1700166599299" duration="1251000" />
+      <workItem from="1700166599299" duration="1408000" />
+      <workItem from="1700214138908" duration="1096000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -80,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700136881797</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cambios en la forma de detectar cuando una partida a terminado">
+      <created>1700174654649</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700174654649</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +108,7 @@
     <MESSAGE value="Modelo de dominio y parte de la logica de negocio terminadas" />
     <MESSAGE value="Clase partida terminada" />
     <MESSAGE value="Clase jugador creada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clase jugador creada" />
+    <MESSAGE value="Cambios en la forma de detectar cuando una partida a terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la forma de detectar cuando una partida a terminado" />
   </component>
 </project>

@@ -27,6 +27,12 @@ public class Jugador {
         if (jugada && (casillaDestino.getColorPieza() == Pieza.Rey )){
             this.enroqueCorto = false;
             this.enroqueLargo = false;
+        } else if (jugada && (casillaDestino.getColorPieza() == Pieza.Torre)) {
+            if (casillaOrigen.getColumna() == 1){
+                this.enroqueLargo = false;
+            }else if(casillaOrigen.getColumna() == 8){
+                this.enroqueCorto = false;
+            }
         }
 
         return jugada;
@@ -60,6 +66,11 @@ public class Jugador {
 
     public void turnoRival(Casilla casillaOrigen, Casilla casillaDestino){
         this.partida.movePieza(casillaOrigen,casillaDestino);
+        this.turno = true;
+    }
+
+    public void rendirse(){
+        this.partida.captureKing(this.color);
     }
 
 

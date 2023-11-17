@@ -156,4 +156,12 @@ public class Partida {
         return this.ganador;
     }
 
+    public void captureKing(int color){
+        if (color == Pieza.Blanco){
+            this.reyBlanco.capturado();
+        } else if (color == Pieza.Negro) {
+            this.reyNegro.capturado();
+        }
+    }
+
 }
