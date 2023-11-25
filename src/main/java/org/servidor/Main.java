@@ -1,4 +1,6 @@
-package org.example;
+package org.servidor;
+
+import org.juego.Tablero;
 
 public class Main {
     public static void main(String[] args) {

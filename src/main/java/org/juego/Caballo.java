@@ -1,4 +1,4 @@
-package org.example;
+package org.juego;
 
 public class Caballo extends Pieza{
 

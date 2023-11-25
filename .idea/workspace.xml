@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Deteccion de enroques posibles y posibilidad de rendirse implementada">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Servidor.java" afterDir="false" />
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Estructura del servidor creado">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/servidor/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/xml/EsquemaUsuarios.dtd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/xml/Usuarios.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Alfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Alfil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Caballo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Caballo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Casilla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servidor/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Peon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Peon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pieza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Pieza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Reina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Reina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Rey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Rey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servidor/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Tablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/juego/Torre.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,15 +48,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "aspect.path.notification.shown": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "DTD"
+    ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.servidor" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,7 +86,8 @@
       <workItem from="1700123777439" duration="3094000" />
       <workItem from="1700166599299" duration="1408000" />
       <workItem from="1700214138908" duration="1920000" />
-      <workItem from="1700933060611" duration="2257000" />
+      <workItem from="1700933060611" duration="2422000" />
+      <workItem from="1700939694495" duration="1683000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -101,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700934291403</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Estructura del servidor creado">
+      <created>1700936175208</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700936175208</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +161,7 @@
     <MESSAGE value="Clase jugador creada" />
     <MESSAGE value="Cambios en la forma de detectar cuando una partida a terminado" />
     <MESSAGE value="Deteccion de enroques posibles y posibilidad de rendirse implementada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deteccion de enroques posibles y posibilidad de rendirse implementada" />
+    <MESSAGE value="Estructura del servidor creado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura del servidor creado" />
   </component>
 </project>

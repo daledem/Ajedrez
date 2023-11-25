@@ -1,4 +1,4 @@
-package org.example;
+package org.juego;
 
 public class Rey extends Pieza{
     private boolean capturado;

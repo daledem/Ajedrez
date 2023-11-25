@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!ELEMENT listaUsuarios (usuario*)>
+
+        <!ELEMENT usuario (nombre,elo,esperandoEnMesa?)>
+        <!ATTLIST usuario
+                ip ID #REQUIRED
+                puerto CDATA #IMPLIED
+        >
+
+        <!ELEMENT nombre (#PCDATA)>
+
+        <!ELEMENT elo (#PCDATA)>
+
+        <!ELEMENT esperandoEnMesa EMPTY>
