@@ -65,6 +65,7 @@ public class Jugador {
     }
 
     public void turnoRival(Casilla casillaOrigen, Casilla casillaDestino){
+        // Hay que modificarlo para que incluya la opcion de enrocar
         this.partida.movePieza(casillaOrigen,casillaDestino);
         this.turno = true;
     }

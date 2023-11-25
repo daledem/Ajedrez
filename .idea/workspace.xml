@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Cambios en la forma de detectar cuando una partida a terminado">
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Deteccion de enroques posibles y posibilidad de rendirse implementada">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partida.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,8 @@
       <workItem from="1700046255148" duration="6322000" />
       <workItem from="1700123777439" duration="3094000" />
       <workItem from="1700166599299" duration="1408000" />
-      <workItem from="1700214138908" duration="1096000" />
+      <workItem from="1700214138908" duration="1920000" />
+      <workItem from="1700933060611" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -87,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700174654649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Deteccion de enroques posibles y posibilidad de rendirse implementada">
+      <created>1700216252981</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700216252981</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +116,7 @@
     <MESSAGE value="Clase partida terminada" />
     <MESSAGE value="Clase jugador creada" />
     <MESSAGE value="Cambios en la forma de detectar cuando una partida a terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios en la forma de detectar cuando una partida a terminado" />
+    <MESSAGE value="Deteccion de enroques posibles y posibilidad de rendirse implementada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deteccion de enroques posibles y posibilidad de rendirse implementada" />
   </component>
 </project>
