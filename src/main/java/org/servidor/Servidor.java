@@ -28,6 +28,8 @@ public class Servidor {
             try {
                 if (s != null) {
                     s.close();
+
+                    pool.execute(new AdministradorUsuarios(s));
                 }
             }catch (IOException e){
                 e.printStackTrace();
