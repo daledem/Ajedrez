@@ -4,6 +4,7 @@
         <!ELEMENT usuario (elo,esperandoEnMesa?)>
         <!ATTLIST usuario
                 nombre ID #REQUIRED
+                contrasena CDATA #REQUIRED
                 ip CDATA #REQUIRED
                 puerto CDATA #IMPLIED
         >

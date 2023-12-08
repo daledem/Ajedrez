@@ -1,3 +1,2 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><listaUsuarios>
-<usuario ip="192.168.56.1" nombre="David"><elo>850</elo></usuario><usuario ip="192.168.56.1" nombre="Juan"><elo>850</elo>
-</usuario><usuario ip="192.168.56.1" nombre="Miguel"><elo>850</elo></usuario></listaUsuarios>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE listaUsuarios SYSTEM "EsquemaUsuarios.dtd"><listaUsuarios>
+</listaUsuarios>

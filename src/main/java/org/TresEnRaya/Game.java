@@ -6,6 +6,7 @@ public class Game {
 
     private Square [][] table;
     private String turn;
+    private String winner;
 
     public Game(){
         this.table = new Square[3][3];
@@ -16,6 +17,7 @@ public class Game {
             }
         }
 
+        this.winner = " ";
         this.turn = "0";
     }
 
@@ -29,6 +31,14 @@ public class Game {
 
     public void setTable(Square [][] table){
         this.table = table;
+    }
+
+    public String getWinner(){
+        return this.winner;
+    }
+
+    public void setWinner(String winner){
+        this.winner = winner;
     }
 
     public boolean markSquare(int colum, int row){
@@ -55,7 +65,29 @@ public class Game {
             i++;
         }
 
+        if(!finish && this.checkStalemate()){
+            finish = true;
+        }
+
         return finish;
+    }
+
+    public boolean checkStalemate(){
+        boolean stalmate = true;
+
+        int i = 0;
+        int j = 0;
+        while (i < 3 && stalmate){
+            while (j < 3 && stalmate){
+                if(this.table[i][j].isEmpty()){
+                    stalmate = false;
+                }
+                j++;
+            }
+            i++;
+        }
+
+        return stalmate;
     }
 
     public void changeTurn(){
@@ -128,7 +160,12 @@ public class Game {
             }
         }while (!game.finish());
 
-        game.show();
-        System.out.println("the winner is " + game.turn);
+        if(!game.checkStalemate()) {
+            game.setWinner(game.getTurn());
+            game.show();
+            System.out.println("the winner is " + game.getWinner());
+        }else {
+            System.out.println("Stalemate");
+        }
     }
 }

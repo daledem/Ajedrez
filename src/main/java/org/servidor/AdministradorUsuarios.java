@@ -28,14 +28,14 @@ public class AdministradorUsuarios extends Thread{
         String [] resultado;
         String ip;
         String nombre;
-        int puerto;
+        String contrasena;
         int elo;
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(this.s.getInputStream())); PrintStream ps = new PrintStream(this.s.getOutputStream())){
 
             mensaje = br.readLine();
 
-            if (mensaje.startsWith("RESULTADO ")){ // Si el mensaje debera ser de la forma 'RESULTADO <nombre> <puntos>
+            if (mensaje.startsWith("CHANGE ")){ // Si el mensaje debera ser de la forma 'CHANGE <nombre> <puntos>
                                                    // donde puntos es la cantidad de puntos ganados o perdidos
                 resultado = mensaje.split(" ");
 
@@ -51,55 +51,47 @@ public class AdministradorUsuarios extends Thread{
                 }else {
                     this.mensajeError(ps);
                 }
-            }else {
-                resultado = mensaje.split(" "); // El mensaje debe contener el nombre seguido de la IP
+            }else if(mensaje.startsWith("GET ")){
+                resultado = mensaje.split(" "); // El mensaje debe contener el nombre seguido de la contraseña
 
-                if (resultado.length == 2){
-                    nombre = resultado[0];
-                    ip = resultado[1];
+                if (resultado.length == 3){
+                    nombre = resultado[1];
+                    contrasena = resultado[2];
+                    ip = this.s.getInetAddress().toString();
 
-                    if (!buscarUsuario(nombre,ip)){ // Si el usuario no se encuentra en el xml, se registrara
-                        aniadirUsuario(nombre,ip);
+                    if(this.buscarUsuario(nombre,contrasena,ip)) { // Metodo en if pendiente de modificar
+                        this.gestionarConsulta(nombre,ps,br);
+                    }else {
+                        this.mensajeError(ps);
                     }
-
-                    do {
-
-                        enviarMesas(ps);
-
-                        mensaje = br.readLine();
-
-                        if (mensaje.startsWith("NUEVAMESA")) {
-                            // Si desea crear una nueva, el usuario enviara
-                            // NUEVAMESA <puerto>, siendo puerto el puerto en el
-                            // que el usuario hosteara la mesa
-
-                            resultado = mensaje.split(" ");
-                            if (resultado.length == 2) {
-                                puerto = Integer.parseInt(resultado[1]);
-                                aniadirMesa(nombre, puerto);
-                            } else {
-                                mensajeError(ps);
-                            }
-                        } else if(!mensaje.equals("ACTUALIZAR")){
-                            // En caso de que no desee crear una mesa sino unirse, simplemente enviara el nombre
-                            // de la persona a la que quiere unirse
-
-                            if (enviarUsuarioEnMesa(mensaje, ps)) {
-                                quitarMesa(mensaje);
-                            } else {
-                                mensajeError(ps);
-                            }
-                        }
-                    }while (mensaje.equals("ACTUALIZAR"));
 
                 }else {
                     mensajeError(ps);
                 }
 
+            } else if (mensaje.startsWith("PUT ")) {
+                resultado = mensaje.split(" "); // El mensaje debe contener el nombre seguido de la contraseña
+
+                if (resultado.length == 3){
+                    nombre = resultado[1];
+                    contrasena = resultado[2];
+                    ip = this.s.getInetAddress().toString();
+
+                    if (aniadirUsuario(nombre,contrasena,ip)){ // Metodo pendiente de modificar
+                        gestionarConsulta(nombre,ps,br);
+                    }else {
+                        mensajeError(ps);
+                    }
+
+                }else {
+                    mensajeError(ps);
+                }
+            }else{
+                mensajeError(ps);
             }
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }finally {
             try {
                 if (this.s != null){
@@ -110,6 +102,66 @@ public class AdministradorUsuarios extends Thread{
             }
         }
 
+
+    }
+
+    public void gestionarConsulta(String nombre,PrintStream ps,BufferedReader br) throws IOException{
+        String mensaje;
+        String [] partesMensaje;
+        String nombreRival;
+        int puerto;
+
+        enviarMesas(ps);
+
+        mensaje = br.readLine();
+
+        while(!mensaje.equals("EXIT")) {
+
+            if (mensaje.startsWith("TABLE ")) {
+                // Si desea crear una nueva, el usuario enviara
+                // NUEVAMESA <puerto>, siendo puerto el puerto en el
+                // que el usuario hosteara la mesa
+
+                partesMensaje = mensaje.split(" ");
+                if (partesMensaje.length == 2) {
+                    puerto = Integer.parseInt(partesMensaje[1]);
+                    aniadirMesa(nombre, puerto);
+                    mensajeOk(ps);
+                } else {
+                    mensajeError(ps);
+                }
+
+            } else if (mensaje.equals("NTABLE")) {
+
+                if(quitarMesa(nombre)){
+                    mensajeOk(ps);
+                }else {
+                    mensajeError(ps);
+                }
+
+            } else if(mensaje.equals("UPDATE")){
+                // En caso de que no desee crear una mesa sino unirse, simplemente enviara el nombre
+                // de la persona a la que quiere unirse
+
+                enviarMesas(ps);
+            } else if (mensaje.startsWith("GETTABLE ")) {
+                partesMensaje = mensaje.split(" ");
+
+                if(partesMensaje.length == 2){
+                    nombreRival = partesMensaje[1];
+                    if(enviarUsuarioEnMesa(nombreRival,ps)){
+                        mensajeOk(ps);
+                    }else {
+                        mensajeError(ps);
+                    }
+                }
+
+            }else{
+                this.mensajeError(ps);
+            }
+
+            mensaje = br.readLine();
+        }
 
     }
 
@@ -129,7 +181,7 @@ public class AdministradorUsuarios extends Thread{
 
             int i = 0;
             int lenght = usuarios.getLength();
-            while (i<lenght && !sumado ){
+            while (i < lenght && !sumado ){
                 Element usuario = (Element) usuarios.item(i);
 
                 if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
@@ -163,11 +215,12 @@ public class AdministradorUsuarios extends Thread{
         ps.println("OK");
     }
 
-    private boolean buscarUsuario(String nombre,String ip){
+    private boolean buscarUsuario(String nombre, String contrasena,String ip){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
         Document doc = null;
         boolean encontrado = false;
+        boolean contrasenaCorrecta = false;
 
         try {
             dbf = DocumentBuilderFactory.newInstance();
@@ -183,9 +236,13 @@ public class AdministradorUsuarios extends Thread{
 
                 if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
 
-                    if (!usuario.getAttributeNode("ip").getValue().equals(ip)){
-                        usuario.getAttributeNode("ip").setValue(ip);
+                    if(usuario.getAttributeNode("contrasena").getValue().equals(contrasena)){
+                        if (!usuario.getAttributeNode("ip").getValue().equals(ip)){
+                            usuario.getAttributeNode("ip").setValue(ip);
+                        }
+                        contrasenaCorrecta = true;
                     }
+
                     encontrado = true;
                 }
                 i++;
@@ -203,7 +260,7 @@ public class AdministradorUsuarios extends Thread{
             e.printStackTrace();
         }
 
-        return encontrado;
+        return contrasenaCorrecta;
     }
 
     private void enviarMesas(PrintStream ps){
@@ -245,7 +302,7 @@ public class AdministradorUsuarios extends Thread{
         }
     }
 
-    private boolean aniadirUsuario(String nombre, String ip){
+    private boolean aniadirUsuario(String nombre,String contrasena, String ip){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
         Document doc = null;
@@ -261,6 +318,7 @@ public class AdministradorUsuarios extends Thread{
 
             nuevoUsuario = doc.createElement("usuario");
             nuevoUsuario.setAttribute("nombre",nombre);
+            nuevoUsuario.setAttribute("contrasena",contrasena);
             nuevoUsuario.setAttribute("ip",ip);
 
             elo = doc.createElement("elo");
