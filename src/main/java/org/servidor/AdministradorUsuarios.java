@@ -58,7 +58,7 @@ public class AdministradorUsuarios extends Thread{
                     nombre = resultado[0];
                     ip = resultado[1];
 
-                    if (buscarUsuario(nombre,ip)){ // Si el usuario no se encuentra en el xml, se registrara
+                    if (!buscarUsuario(nombre,ip)){ // Si el usuario no se encuentra en el xml, se registrara
                         aniadirUsuario(nombre,ip);
                     }
 
@@ -230,7 +230,7 @@ public class AdministradorUsuarios extends Thread{
                 esperandoEnMesa = mesa.getLength() == 2;
 
                 if (esperandoEnMesa){
-                    elo = mesa.item(0).getNodeValue();
+                    elo = mesa.item(0).getFirstChild().getNodeValue();
                     nombre = usuario.getAttributeNode("nombre").getValue();
 
                     ps.println(nombre + " " + elo);
@@ -239,6 +239,7 @@ public class AdministradorUsuarios extends Thread{
             }
 
             ps.println("FIN");
+            ps.flush();
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }

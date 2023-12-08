@@ -23,17 +23,17 @@ public class Cliente {
 
 
             mensaje = nombre + " " + InetAddress.getLocalHost().getHostAddress();
+            ps.println(mensaje);
+            ps.flush();
+
+            mensaje = br.readLine();
+
+            while (!mensaje.equals("FIN")) {
+                System.out.println(mensaje);
+                mensaje = br.readLine();
+            }
 
             do {
-                ps.println(mensaje);
-
-                mensaje = br.readLine();
-
-                while (!mensaje.equals("FIN")) {
-                    System.out.println(mensaje);
-                }
-
-
                 System.out.println("Introduzca contra quien desea jugar");
                 System.out.println("Si desea crear una mesa introduzca NUEVAMESA");
                 System.out.println("Si desea actuaizar la lista introduzca ACTUALIZAR");
@@ -42,16 +42,18 @@ public class Cliente {
             }while (mensaje.equals("ACTUALIZAR"));
 
             if (mensaje.equals("NUEVAMESA")){
-                mensaje = mensaje + " 55555";
+                mensaje = mensaje + " 66666";
                 ps.println(mensaje);
-                ServerSocket ss = new ServerSocket(55555);
+                ps.flush();
+                ServerSocket ss = new ServerSocket(6666);
                 Socket s2 = ss.accept();
                 ganado = jugar(s2);
             }else {
                 ps.println(mensaje);
+                ps.flush();
 
-                mensaje = br.readLine();
-
+                System.out.println(br.readLine());
+                //Por implementar
 
             }
 
@@ -62,7 +64,7 @@ public class Cliente {
     }
 
     private static boolean jugar(Socket s){
-
+        return false;
     }
 
 }
