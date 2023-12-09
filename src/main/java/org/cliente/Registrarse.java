@@ -30,15 +30,21 @@ public class Registrarse {
             public void actionPerformed(ActionEvent e) {
                 String respuesta;
 
-                try (Socket s = new Socket(InetAddress.getLocalHost(),55555); PrintStream ps = new PrintStream(s.getOutputStream()); BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()))){
-
-                    ps.println("GET " + Registrarse.this.textFieldNombre.getText() + " " + Registrarse.this.textFieldContrasena.getText());
+                try {
+                    String nombre = Registrarse.this.textFieldNombre.getText();
+                    String contrasena = Registrarse.this.textFieldContrasena.getText();
+                    Socket s = new Socket(InetAddress.getLocalHost(),55555);
+                    PrintStream ps = new PrintStream(s.getOutputStream());
+                    BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                    ps.println("GET " + nombre + " " + contrasena);
                     ps.flush();
 
                     respuesta = br.readLine();
 
                     if(respuesta.equals("OK")){
-
+                        Lobby lobby = new Lobby(Registrarse.this.textFieldNombre.getText(),br,ps);
+                        lobby.showInterface();
+                        Registrarse.this.frame.dispose();
                     }else {
                         Registrarse.this.errorLabel.setVisible(true);
                         Registrarse.this.frame.pack();
@@ -69,15 +75,21 @@ public class Registrarse {
             public void actionPerformed(ActionEvent e) {
                 String respuesta;
 
-                try (Socket s = new Socket(InetAddress.getLocalHost(),55555); PrintStream ps = new PrintStream(s.getOutputStream()); BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()))){
-
-                    ps.println("PUT " + Registrarse.this.textFieldNombre.getText() + " " + Registrarse.this.textFieldContrasena.getText());
+                try {
+                    String nombre = Registrarse.this.textFieldNombre.getText();
+                    String contrasena = Registrarse.this.textFieldContrasena.getText();
+                    Socket s = new Socket(InetAddress.getLocalHost(),55555);
+                    PrintStream ps = new PrintStream(s.getOutputStream());
+                    BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                    ps.println("PUT " + nombre + " " + contrasena);
                     ps.flush();
 
                     respuesta = br.readLine();
 
                     if(respuesta.equals("OK")){
-
+                        Lobby lobby = new Lobby(nombre, br, ps);
+                        lobby.showInterface();
+                        Registrarse.this.frame.dispose();
                     }else {
                         Registrarse.this.errorLabel.setVisible(true);
                         Registrarse.this.frame.pack();

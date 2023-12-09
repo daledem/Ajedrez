@@ -78,8 +78,11 @@ public class AdministradorUsuarios extends Thread{
                     contrasena = resultado[2];
                     ip = this.s.getInetAddress().toString();
 
-                    if (!buscarUsuario(nombre,contrasena,ip) && aniadirUsuario(nombre,contrasena,ip)){ // Metodo pendiente de modificar
-                        gestionarConsulta(nombre,ps,br);
+                    if (!buscarUsuario(nombre,ip)){ // Metodo pendiente de modificar
+                        if(aniadirUsuario(nombre,contrasena,ip)){
+                            this.mensajeOk(ps);
+                            gestionarConsulta(nombre,ps,br);
+                        }
                     }else {
                         mensajeError(ps);
                     }
@@ -120,7 +123,7 @@ public class AdministradorUsuarios extends Thread{
 
             if (mensaje.startsWith("TABLE ")) {
                 // Si desea crear una nueva, el usuario enviara
-                // NUEVAMESA <puerto>, siendo puerto el puerto en el
+                // TABLE <puerto>, siendo puerto el puerto en el
                 // que el usuario hosteara la mesa
 
                 partesMensaje = mensaje.split(" ");
@@ -150,9 +153,7 @@ public class AdministradorUsuarios extends Thread{
 
                 if(partesMensaje.length == 2){
                     nombreRival = partesMensaje[1];
-                    if(enviarUsuarioEnMesa(nombreRival,ps)){
-                        mensajeOk(ps);
-                    }else {
+                    if(!enviarUsuarioEnMesa(nombreRival,ps)){
                         mensajeError(ps);
                     }
                 }
@@ -264,6 +265,50 @@ public class AdministradorUsuarios extends Thread{
         return contrasenaCorrecta;
     }
 
+    public boolean buscarUsuario(String nombre,String ip){
+        DocumentBuilderFactory dbf = null;
+        DocumentBuilder db = null;
+        Document doc = null;
+        boolean encontrado = false;
+
+        try {
+            dbf = DocumentBuilderFactory.newInstance();
+            db = dbf.newDocumentBuilder();
+            doc = db.parse(new File("src/main/xml/Usuarios.xml"));
+
+            NodeList usuarios = doc.getElementsByTagName("usuario");
+
+            int i = 0;
+            int lenght = usuarios.getLength();
+            while (i<lenght && !encontrado ){
+                Element usuario = (Element) usuarios.item(i);
+
+                if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
+                    if (!usuario.getAttributeNode("ip").getValue().equals(ip)){
+                        usuario.getAttributeNode("ip").setValue(ip);
+                    }
+
+                    encontrado = true;
+                }
+                i++;
+            }
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File("src/main/xml/Usuarios.xml"));
+            transformer.transform(source, result);
+
+
+
+        } catch (ParserConfigurationException | IOException | SAXException | TransformerException e) {
+            e.printStackTrace();
+        }
+
+        return encontrado;
+
+    }
+
     private void enviarMesas(PrintStream ps){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -285,7 +330,7 @@ public class AdministradorUsuarios extends Thread{
                 Element usuario = (Element) usuarios.item(i);
                 NodeList mesa = usuario.getElementsByTagName("*");
 
-                esperandoEnMesa = mesa.getLength() == 2;
+                esperandoEnMesa = (mesa.getLength() == 2);
 
                 if (esperandoEnMesa){
                     elo = mesa.item(0).getFirstChild().getNodeValue();
@@ -374,15 +419,15 @@ public class AdministradorUsuarios extends Thread{
 
                 if (esperandoEnMesa && nombreXml.equals(nombre)){
                     puerto = usuario.getAttributeNode("puerto").getValue();
-                    ip = usuario.getAttributeNode("ip").getValue();
+                    ip = usuario.getAttributeNode("ip").getValue().substring(1);
 
                     ps.println(ip + " " + puerto);
+                    ps.flush();
                     enviado = true;
                 }
                 i++;
             }
 
-            ps.println("FIN");
         } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -407,8 +452,9 @@ public class AdministradorUsuarios extends Thread{
             int lenght = usuarios.getLength();
             while (i<lenght && !aniadida){
                 Element usuario = (Element) usuarios.item(i);
+                NodeList elementosUsuario = usuario.getElementsByTagName("*");
 
-                if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
+                if (usuario.getAttributeNode("nombre").getValue().equals(nombre) && elementosUsuario.getLength() == 1){
                     usuario.setAttribute("puerto",String.valueOf(puerto));
 
                     esperandoEnMesa = doc.createElement("esperandoEnMesa");

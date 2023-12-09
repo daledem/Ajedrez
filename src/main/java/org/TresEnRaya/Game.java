@@ -1,8 +1,9 @@
 package org.TresEnRaya;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Game {
+public class Game implements Serializable {
 
     private Square [][] table;
     private String turn;

@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><listaUsuarios>
-<usuario contrasena="1234" ip="/192.168.56.1" nombre="David"><elo>850</elo></usuario></listaUsuarios>
+<usuario contrasena="1234" ip="/192.168.56.1" nombre="David" puerto="5555"><elo>850</elo></usuario><usuario contrasena="1234" ip="/192.168.56.1" nombre="Juan" puerto="5555"><elo>850</elo></usuario></listaUsuarios>
