@@ -60,6 +60,7 @@ public class AdministradorUsuarios extends Thread{
                     ip = this.s.getInetAddress().toString();
 
                     if(this.buscarUsuario(nombre,contrasena,ip)) { // Metodo en if pendiente de modificar
+                        this.mensajeOk(ps);
                         this.gestionarConsulta(nombre,ps,br);
                     }else {
                         this.mensajeError(ps);
@@ -77,7 +78,7 @@ public class AdministradorUsuarios extends Thread{
                     contrasena = resultado[2];
                     ip = this.s.getInetAddress().toString();
 
-                    if (aniadirUsuario(nombre,contrasena,ip)){ // Metodo pendiente de modificar
+                    if (!buscarUsuario(nombre,contrasena,ip) && aniadirUsuario(nombre,contrasena,ip)){ // Metodo pendiente de modificar
                         gestionarConsulta(nombre,ps,br);
                     }else {
                         mensajeError(ps);

@@ -1,2 +1,2 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE listaUsuarios SYSTEM "EsquemaUsuarios.dtd"><listaUsuarios>
-</listaUsuarios>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><listaUsuarios>
+<usuario contrasena="1234" ip="/192.168.56.1" nombre="David"><elo>850</elo></usuario></listaUsuarios>

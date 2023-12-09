@@ -1,5 +1,6 @@
 package org.cliente;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +14,11 @@ import java.util.Scanner;
 public class Cliente {
 
     public static void main(String[] args) throws UnknownHostException {
+
+        Registrarse reg = new Registrarse();
+        reg.showInterface();
+
+        /*
         String nombre;
         String mensaje;
         boolean ganado;
@@ -60,6 +66,8 @@ public class Cliente {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+         */
 
     }
 
