@@ -1,6 +1,8 @@
 package org.TresEnRaya;
 
-public class Square {
+import java.io.Serializable;
+
+public class Square implements Serializable {
     private String type;
 
     public Square(){

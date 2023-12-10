@@ -42,7 +42,7 @@ public class Registrarse {
                     respuesta = br.readLine();
 
                     if(respuesta.equals("OK")){
-                        Lobby lobby = new Lobby(Registrarse.this.textFieldNombre.getText(),br,ps);
+                        Lobby lobby = new Lobby(nombre, contrasena,br,ps);
                         lobby.showInterface();
                         Registrarse.this.frame.dispose();
                     }else {
@@ -87,7 +87,7 @@ public class Registrarse {
                     respuesta = br.readLine();
 
                     if(respuesta.equals("OK")){
-                        Lobby lobby = new Lobby(nombre, br, ps);
+                        Lobby lobby = new Lobby(nombre, contrasena,br, ps);
                         lobby.showInterface();
                         Registrarse.this.frame.dispose();
                     }else {

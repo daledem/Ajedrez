@@ -494,11 +494,12 @@ public class AdministradorUsuarios extends Thread{
             int lenght = usuarios.getLength();
             while (i<lenght && !eliminada){
                 Element usuario = (Element) usuarios.item(i);
+                NodeList elementosUsuario = usuario.getElementsByTagName("*");
 
-                if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
+                if (usuario.getAttributeNode("nombre").getValue().equals(nombre) && elementosUsuario.getLength() == 2){
                     usuario.removeAttribute("puerto");
 
-                    usuario.removeChild(doc.createElement("esperandoEnMesa"));
+                    usuario.removeChild(usuario.getLastChild());
 
                     eliminada = true;
                 }

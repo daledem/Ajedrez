@@ -1,7 +1,8 @@
 package org.cliente;
 
+import org.TresEnRaya.Game;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.net.Socket;
 
 public class Lobby {
     private String nombre;
+    private String contrasena;
     private BufferedReader br;
     private PrintStream ps;
     private JFrame frame;
@@ -24,8 +26,9 @@ public class Lobby {
     private JLabel errorConectionLabel;
     private JLabel errorTableLabel;
 
-    public Lobby(String nombre, BufferedReader br, PrintStream ps){
+    public Lobby(String nombre, String contrasena, BufferedReader br, PrintStream ps){
         this.nombre = nombre;
+        this.contrasena = contrasena;
         this.br = br;
         this.ps = ps;
         frame = new JFrame("Lobby");
@@ -63,7 +66,7 @@ public class Lobby {
                     String mesa = br.readLine();
 
                     while (!mesa.equals("FIN")){
-                        Lobby.this.comboBox1.add(new JLabel(mesa));
+                        Lobby.this.comboBox1.addItem(mesa);
                         mesa = br.readLine();
                     }
 
@@ -92,14 +95,12 @@ public class Lobby {
 
                 try {
                     String respuesta = br.readLine();
-                    System.out.println(respuesta);
 
                     if(!respuesta.equals("ERROR")){
                         String [] datosRespuesta = respuesta.split(" ");
                         Socket s = new Socket(datosRespuesta[0],Integer.parseInt(datosRespuesta[1]));
-                        /*
-                        * Por hacer
-                         */
+                        TresEnRaya game = new TresEnRaya(s,null,null,nombre,contrasena);
+                        game.showInterface();
                         ps.println("EXIT");
                         ps.flush();
                         Lobby.this.frame.dispose();
@@ -119,7 +120,6 @@ public class Lobby {
         crearMesaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(Lobby.this.puertoTextField.getText());
                 if(esPuertoValido(Lobby.this.puertoTextField)){
                     int puerto = Integer.parseInt(Lobby.this.puertoTextField.getText());
                     ps.println("TABLE " + puerto);
@@ -127,7 +127,8 @@ public class Lobby {
                     try {
                         ServerSocket ss = new ServerSocket(puerto);
                         Socket s = ss.accept();
-
+                        TresEnRaya game = new TresEnRaya(s,ss,new Game(),nombre,contrasena);
+                        game.showInterface();
                         ps.println("NTABLE");
                         ps.println("EXIT");
                         ps.flush();
@@ -149,7 +150,7 @@ public class Lobby {
 
         this.frame.addWindowListener(new WindowAdapter() {
             @Override
-            public void windowClosing(WindowEvent e) {
+            public void windowClosed(WindowEvent e) {
                 if (ps != null){
                     ps.println("EXIT");
                     ps.flush();
@@ -163,8 +164,6 @@ public class Lobby {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-
-
 
             }
 

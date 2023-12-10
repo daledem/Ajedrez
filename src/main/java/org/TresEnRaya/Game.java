@@ -66,7 +66,9 @@ public class Game implements Serializable {
             i++;
         }
 
-        if(!finish && this.checkStalemate()){
+        if(finish){
+            this.winner = this.turn;
+        }else if(!finish && this.checkStalemate()){
             finish = true;
         }
 
@@ -161,8 +163,7 @@ public class Game implements Serializable {
             }
         }while (!game.finish());
 
-        if(!game.checkStalemate()) {
-            game.setWinner(game.getTurn());
+        if(!game.getWinner().equals(" ")) {
             game.show();
             System.out.println("the winner is " + game.getWinner());
         }else {
