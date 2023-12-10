@@ -87,6 +87,7 @@ public class Game implements Serializable {
                 }
                 j++;
             }
+            j = 0;
             i++;
         }
 

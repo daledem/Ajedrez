@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Error grave en el servidor arreglado">
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Errores varios arreglados">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +55,7 @@
     "aspect.path.notification.shown": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Public/Documents/IDEAProjects/Ajedrez",
+    "last_opened_file_path": "C:/Users/Public/Documents/IDEAProjects/Ajedrez/src/main/java/borrar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,6 +73,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Public\Documents\IDEAProjects\Ajedrez\src\main\java\borrar" />
+      <recent name="C:\Users\Public\Documents\IDEAProjects\Ajedrez\src\main\java\org\cliente" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.servidor" />
     </key>
@@ -120,7 +129,7 @@
       <workItem from="1700994277669" duration="18686000" />
       <workItem from="1701624387819" duration="4565000" />
       <workItem from="1701947636380" duration="84000" />
-      <workItem from="1702050514248" duration="46756000" />
+      <workItem from="1702050514248" duration="49854000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -248,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702222498629</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Errores varios arreglados">
+      <option name="closed" value="true" />
+      <created>1702224855968</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702224855968</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +298,8 @@
     <MESSAGE value="Lobby terminado" />
     <MESSAGE value="Tres en raya funcionando, fallo a la hora de sumar elo" />
     <MESSAGE value="Error grave en el servidor arreglado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error grave en el servidor arreglado" />
+    <MESSAGE value="Errores varios arreglados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Errores varios arreglados" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,6 +308,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java</url>
           <line>182</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

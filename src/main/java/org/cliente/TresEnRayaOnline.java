@@ -8,11 +8,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TresEnRaya {
+public class TresEnRayaOnline {
     private Socket s;
     private ServerSocket ss;
     private ObjectOutputStream oos;
@@ -33,7 +32,7 @@ public class TresEnRaya {
     private JButton button23;
     private JButton button33;
 
-    public TresEnRaya(Socket s, ServerSocket ss, Game game, String nombre, String contrasena){
+    public TresEnRayaOnline(Socket s, ServerSocket ss, Game game, String nombre, String contrasena){
         this.s = s;
         this.ss = ss;
         this.game = game;
@@ -105,8 +104,8 @@ public class TresEnRaya {
         button11.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button11.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(1, 1);
+                if(TresEnRayaOnline.this.button11.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(1, 1);
                 }
             }
         });
@@ -114,8 +113,8 @@ public class TresEnRaya {
         button12.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button12.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(1, 2);
+                if(TresEnRayaOnline.this.button12.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(1, 2);
                 }
             }
         });
@@ -123,8 +122,8 @@ public class TresEnRaya {
         button13.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button13.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(1, 3);
+                if(TresEnRayaOnline.this.button13.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(1, 3);
                 }
             }
         });
@@ -132,8 +131,8 @@ public class TresEnRaya {
         button21.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button21.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(2, 1);
+                if(TresEnRayaOnline.this.button21.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(2, 1);
                 }
             }
         });
@@ -141,8 +140,8 @@ public class TresEnRaya {
         button22.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button22.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(2, 2);
+                if(TresEnRayaOnline.this.button22.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(2, 2);
                 }
             }
         });
@@ -150,8 +149,8 @@ public class TresEnRaya {
         button23.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button23.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(2, 3);
+                if(TresEnRayaOnline.this.button23.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(2, 3);
                 }
             }
         });
@@ -159,8 +158,8 @@ public class TresEnRaya {
         button31.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button31.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(3, 1);
+                if(TresEnRayaOnline.this.button31.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(3, 1);
                 }
             }
         });
@@ -168,8 +167,8 @@ public class TresEnRaya {
         button32.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button32.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(3, 2);
+                if(TresEnRayaOnline.this.button32.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(3, 2);
                 }
             }
         });
@@ -177,8 +176,8 @@ public class TresEnRaya {
         button33.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(TresEnRaya.this.button33.isEnabled()) {
-                    TresEnRaya.this.gestionarBoton(3, 3);
+                if(TresEnRayaOnline.this.button33.isEnabled()) {
+                    TresEnRayaOnline.this.gestionarBoton(3, 3);
                 }
             }
         });

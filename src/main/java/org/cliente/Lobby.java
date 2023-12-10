@@ -51,8 +51,8 @@ public class Lobby {
         cancelarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Registrarse reg = new Registrarse();
-                reg.showInterface();
+                MenuPrincipal mp = new MenuPrincipal();
+                mp.showInterface();
                 Lobby.this.frame.dispose();
             }
         });
@@ -99,7 +99,7 @@ public class Lobby {
                     if(!respuesta.equals("ERROR")){
                         String [] datosRespuesta = respuesta.split(" ");
                         Socket s = new Socket(datosRespuesta[0],Integer.parseInt(datosRespuesta[1]));
-                        TresEnRaya game = new TresEnRaya(s,null,null,nombre,contrasena);
+                        TresEnRayaOnline game = new TresEnRayaOnline(s,null,null,nombre,contrasena);
                         game.showInterface();
                         ps.println("EXIT");
                         ps.flush();
@@ -127,7 +127,7 @@ public class Lobby {
                     try {
                         ServerSocket ss = new ServerSocket(puerto);
                         Socket s = ss.accept();
-                        TresEnRaya game = new TresEnRaya(s,ss,new Game(),nombre,contrasena);
+                        TresEnRayaOnline game = new TresEnRayaOnline(s,ss,new Game(),nombre,contrasena);
                         game.showInterface();
                         ps.println("NTABLE");
                         ps.println("EXIT");
