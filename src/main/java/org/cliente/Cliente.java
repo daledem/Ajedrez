@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Cliente {
 
     public static void main(String[] args) throws UnknownHostException {
-
+        System.out.println(InetAddress.getLocalHost().toString());
         Registrarse reg = new Registrarse();
         reg.showInterface();
 

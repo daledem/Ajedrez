@@ -68,7 +68,7 @@ public class Game implements Serializable {
 
         if(finish){
             this.winner = this.turn;
-        }else if(!finish && this.checkStalemate()){
+        }else if(this.checkStalemate()){
             finish = true;
         }
 

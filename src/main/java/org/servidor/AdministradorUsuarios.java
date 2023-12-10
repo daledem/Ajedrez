@@ -188,7 +188,8 @@ public class AdministradorUsuarios extends Thread{
                 Element usuario = (Element) usuarios.item(i);
 
                 if (usuario.getAttributeNode("nombre").getValue().equals(nombre)){
-                    Element elo = (Element) usuario.getElementsByTagName("elo");
+                    NodeList elementosUsuario = usuario.getElementsByTagName("elo");
+                    Element elo = (Element) elementosUsuario.item(0);
 
                     nuevoElo = Integer.parseInt(elo.getNodeValue()) + variacionElo;
                     elo.setNodeValue(String.valueOf(nuevoElo));

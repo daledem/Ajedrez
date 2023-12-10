@@ -33,7 +33,7 @@ public class Registrarse {
                 try {
                     String nombre = Registrarse.this.textFieldNombre.getText();
                     String contrasena = Registrarse.this.textFieldContrasena.getText();
-                    Socket s = new Socket(InetAddress.getLocalHost(),55555);
+                    Socket s = new Socket("192.168.56.1",55555);
                     PrintStream ps = new PrintStream(s.getOutputStream());
                     BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                     ps.println("GET " + nombre + " " + contrasena);
@@ -78,7 +78,7 @@ public class Registrarse {
                 try {
                     String nombre = Registrarse.this.textFieldNombre.getText();
                     String contrasena = Registrarse.this.textFieldContrasena.getText();
-                    Socket s = new Socket(InetAddress.getLocalHost(),55555);
+                    Socket s = new Socket("192.168.56.1",55555);
                     PrintStream ps = new PrintStream(s.getOutputStream());
                     BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
                     ps.println("PUT " + nombre + " " + contrasena);

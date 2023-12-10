@@ -193,8 +193,8 @@ public class TresEnRaya {
 
     public void gestionarBoton(int colum, int row){
         try {
+            game.changeTurn();
             if (game.markSquare(colum - 1,row - 1)){
-                game.changeTurn();
                 oos.writeObject(game);
                 oos.flush();
                 if(game.finish()){
@@ -208,6 +208,8 @@ public class TresEnRaya {
                 if(game.finish()){
                     terminarJuego();
                 }
+            }else {
+                game.changeTurn();
             }
         } catch (IOException e){
             e.printStackTrace();
@@ -255,7 +257,7 @@ public class TresEnRaya {
     }
 
     public void terminarJuego() {
-        try (Socket s = new Socket(InetAddress.getLocalHost(), 55555);PrintStream ps = new PrintStream(s.getOutputStream())){
+        try (Socket s = new Socket("192.168.56.1", 55555);PrintStream ps = new PrintStream(s.getOutputStream())){
             int puntos;
 
             if (this.game.getWinner().equals(" ")) {
@@ -269,7 +271,7 @@ public class TresEnRaya {
             ps.println("CHANGE " + nombre + " " + puntos);
             ps.flush();
 
-            Socket s2 = new Socket(InetAddress.getLocalHost(), 55555);
+            Socket s2 = new Socket("192.168.56.1", 55555);
             PrintStream ps2 = new PrintStream(s2.getOutputStream());
             BufferedReader br2 = new BufferedReader(new InputStreamReader(s2.getInputStream()));
 
