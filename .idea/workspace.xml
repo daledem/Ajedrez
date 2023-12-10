@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Errores varios arreglados">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" afterDir="false" />
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Trabajo terminado a falta de posibles errores por encontrar">
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +61,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -129,7 +127,7 @@
       <workItem from="1700994277669" duration="18686000" />
       <workItem from="1701624387819" duration="4565000" />
       <workItem from="1701947636380" duration="84000" />
-      <workItem from="1702050514248" duration="49854000" />
+      <workItem from="1702050514248" duration="50408000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -265,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702224855968</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Trabajo terminado a falta de posibles errores por encontrar">
+      <option name="closed" value="true" />
+      <created>1702227886609</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1702227886609</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +305,8 @@
     <MESSAGE value="Tres en raya funcionando, fallo a la hora de sumar elo" />
     <MESSAGE value="Error grave en el servidor arreglado" />
     <MESSAGE value="Errores varios arreglados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Errores varios arreglados" />
+    <MESSAGE value="Trabajo terminado a falta de posibles errores por encontrar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trabajo terminado a falta de posibles errores por encontrar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,5 +323,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
