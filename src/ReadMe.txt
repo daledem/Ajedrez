@@ -1,0 +1,2 @@
+La interfaz grafica del cliente ha sido creada con la ayuda del swing GUI designer de intellij y he encontrado problemas a la hora de
+ejecutar el main de la clase cliente en otro entorno de desarrolo que no sea intellij.

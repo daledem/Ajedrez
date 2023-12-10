@@ -10,17 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="GUI convertida a codigo java">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Ajedrez_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/MenuPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOffline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRayaOnline.java" afterDir="false" />
-    </list>
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Intento fallido de solucion de problemas de la interfaz grafica fuera de intelij" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +126,7 @@
       <workItem from="1701624387819" duration="4565000" />
       <workItem from="1701947636380" duration="84000" />
       <workItem from="1702050514248" duration="51827000" />
-      <workItem from="1702236697520" duration="889000" />
+      <workItem from="1702236697520" duration="1339000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -288,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702233448652</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Intento fallido de solucion de problemas de la interfaz grafica fuera de intelij">
+      <option name="closed" value="true" />
+      <created>1702237656095</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1702237656095</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +322,8 @@
     <MESSAGE value="Errores varios arreglados" />
     <MESSAGE value="Trabajo terminado a falta de posibles errores por encontrar" />
     <MESSAGE value="GUI convertida a codigo java" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI convertida a codigo java" />
+    <MESSAGE value="Intento fallido de solucion de problemas de la interfaz grafica fuera de intelij" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intento fallido de solucion de problemas de la interfaz grafica fuera de intelij" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
