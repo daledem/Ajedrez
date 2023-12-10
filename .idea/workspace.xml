@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Lobby terminado">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cliente/TresEnRaya.java" afterDir="false" />
+    <list default="true" id="f78c804d-170a-46cf-93b5-43e215222e6b" name="Changes" comment="Tres en raya funcionando, fallo a la hora de sumar elo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/TresEnRaya/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cliente/Registrarse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/xml/Usuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/xml/Usuarios.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +117,7 @@
       <workItem from="1700994277669" duration="18686000" />
       <workItem from="1701624387819" duration="4565000" />
       <workItem from="1701947636380" duration="84000" />
-      <workItem from="1702050514248" duration="42477000" />
+      <workItem from="1702050514248" duration="44410000" />
     </task>
     <task id="LOCAL-00001" summary="Modelo de dominio y parte de la logica de negocio terminadas">
       <created>1699899727207</created>
@@ -236,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702152736031</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Tres en raya funcionando, fallo a la hora de sumar elo">
+      <option name="closed" value="true" />
+      <created>1702214685380</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1702214685381</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +268,23 @@
     <MESSAGE value="Protocolo de comunicacion del servidor actualizado, ademas de un par de arreglos al tres en raya" />
     <MESSAGE value="Interfaz de usuario para registrarse terminada" />
     <MESSAGE value="Lobby terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lobby terminado" />
+    <MESSAGE value="Tres en raya funcionando, fallo a la hora de sumar elo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tres en raya funcionando, fallo a la hora de sumar elo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/servidor/AdministradorUsuarios.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/servidor/Servidor.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

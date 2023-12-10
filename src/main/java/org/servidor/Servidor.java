@@ -25,15 +25,6 @@ public class Servidor {
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            try {
-                if (s != null) {
-                    s.close();
-
-                    pool.execute(new AdministradorUsuarios(s));
-                }
-            }catch (IOException e){
-                e.printStackTrace();
-            }
             pool.shutdown();
         }
     }
