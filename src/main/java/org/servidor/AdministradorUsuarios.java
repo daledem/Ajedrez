@@ -23,6 +23,7 @@ public class AdministradorUsuarios extends Thread{
         this.s = s;
     }
 
+
     public void run(){
         String mensaje;
         String [] resultado;
@@ -36,7 +37,8 @@ public class AdministradorUsuarios extends Thread{
             mensaje = br.readLine();
 
             if (mensaje.startsWith("CHANGE ")){ // Si el mensaje debera ser de la forma 'CHANGE <nombre> <puntos>
-                                                   // donde puntos es la cantidad de puntos ganados o perdidos
+                                                // donde puntos es la cantidad de puntos ganados o perdidos
+                                                // Despues de esto el servidor cierra la conexion con el cliente
                 resultado = mensaje.split(" ");
 
                 if (resultado.length == 3){
@@ -52,14 +54,15 @@ public class AdministradorUsuarios extends Thread{
                     this.mensajeError(ps);
                 }
             }else if(mensaje.startsWith("GET ")){
-                resultado = mensaje.split(" "); // El mensaje debe contener el nombre seguido de la contraseña
+                resultado = mensaje.split(" "); // El mensaje debe ser de la forma GET <nombre> <contraseña>
+                                                      // El servidor comprobara si el usuario esta registrado y si la contraseña es correcta
 
                 if (resultado.length == 3){
                     nombre = resultado[1];
                     contrasena = resultado[2];
                     ip = this.s.getInetAddress().toString();
 
-                    if(this.buscarUsuario(nombre,contrasena,ip)) { // Metodo en if pendiente de modificar
+                    if(this.buscarUsuario(nombre,contrasena,ip)) {
                         this.mensajeOk(ps);
                         this.gestionarConsulta(nombre,ps,br);
                     }else {
@@ -71,14 +74,15 @@ public class AdministradorUsuarios extends Thread{
                 }
 
             } else if (mensaje.startsWith("PUT ")) {
-                resultado = mensaje.split(" "); // El mensaje debe contener el nombre seguido de la contraseña
+                resultado = mensaje.split(" "); // El mensaje debe ser de la forma PUT <nombre> <contraseña>
+                                                      // Registra a un nuevo usuario si <nombre> no esta ya registrado
 
                 if (resultado.length == 3){
                     nombre = resultado[1];
                     contrasena = resultado[2];
                     ip = this.s.getInetAddress().toString();
 
-                    if (!buscarUsuario(nombre,ip)){ // Metodo pendiente de modificar
+                    if (!buscarUsuario(nombre,ip)){
                         if(aniadirUsuario(nombre,contrasena,ip)){
                             this.mensajeOk(ps);
                             gestionarConsulta(nombre,ps,br);
@@ -110,6 +114,7 @@ public class AdministradorUsuarios extends Thread{
 
     }
 
+    // Se encarga de gestionar las consultas de los usuarios registrados
     public void gestionarConsulta(String nombre,PrintStream ps,BufferedReader br) throws IOException{
         String mensaje;
         String [] partesMensaje;
@@ -120,11 +125,11 @@ public class AdministradorUsuarios extends Thread{
 
         mensaje = br.readLine();
 
-        while(!mensaje.equals("EXIT")) {
+        while(!mensaje.equals("EXIT")) { // El servidor se comunica con el cliente mientras no reciba en mensaje EXIT
 
             if (mensaje.startsWith("TABLE ")) {
                 // Si desea crear una nueva, el usuario enviara
-                // TABLE <puerto>, siendo puerto el puerto en el
+                // TABLE <puerto>, siendo <puerto> el puerto en el
                 // que el usuario hosteara la mesa
 
                 partesMensaje = mensaje.split(" ");
@@ -137,7 +142,8 @@ public class AdministradorUsuarios extends Thread{
                 }
 
             } else if (mensaje.equals("NTABLE")) {
-
+                // Si desea indicar que ya no se encuentra esperando un ruval, el usuario enviara
+                // NTABLE y el servidor se encargara de borrar la mesa
                 if(quitarMesa(nombre)){
                     mensajeOk(ps);
                 }else {
@@ -145,8 +151,8 @@ public class AdministradorUsuarios extends Thread{
                 }
 
             } else if(mensaje.equals("UPDATE")){
-                // En caso de que no desee crear una mesa sino unirse, simplemente enviara el nombre
-                // de la persona a la que quiere unirse
+                // Si el usuario quiere que se actualizaen las mesas disponibles
+                // enviara UPDATE y el servidor le contestara con la lista de mesas actuales
 
                 enviarMesas(ps);
             } else if (mensaje.startsWith("GETTABLE ")) {
@@ -168,6 +174,8 @@ public class AdministradorUsuarios extends Thread{
 
     }
 
+
+    // Se encarga de actualizar el elo del cliente
     private boolean sumarElo(String nombre,int variacionElo){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -219,6 +227,8 @@ public class AdministradorUsuarios extends Thread{
         ps.println("OK");
     }
 
+    // Busca el usuario por el nombre y devuelve true si existe y la contraseña es correcta
+    // Devuelve false en caso contrario
     private boolean buscarUsuario(String nombre, String contrasena,String ip){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -267,6 +277,8 @@ public class AdministradorUsuarios extends Thread{
         return contrasenaCorrecta;
     }
 
+    // Busca usuario por el nombre y devulve true si esta registrado
+    // Devuelve false en caso contrario
     public boolean buscarUsuario(String nombre,String ip){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -311,6 +323,7 @@ public class AdministradorUsuarios extends Thread{
 
     }
 
+    // Envia el nombre de todos los usuarios que esten esperando en una mesa junto a su elo
     private void enviarMesas(PrintStream ps){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -350,6 +363,8 @@ public class AdministradorUsuarios extends Thread{
         }
     }
 
+    // Registra a un usuario y devuelve true si el nombre no se encuentra ya registrado
+    // Devuelve false en caso contrario
     private boolean aniadirUsuario(String nombre,String contrasena, String ip){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -393,6 +408,8 @@ public class AdministradorUsuarios extends Thread{
     }
 
 
+    // Envia la ip y el puerto en el que se encuentra el usuario nobre y devuelve true
+    // Si el nombre no esta registrado o el usuario no se encuentra en una mesa disponible devuelve false
     private boolean enviarUsuarioEnMesa(String nombre, PrintStream ps){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -436,6 +453,8 @@ public class AdministradorUsuarios extends Thread{
         return enviado;
     }
 
+    // Si nombre esta registrado, devuelve true y establece puerto como el puerto
+    // Devuelve false en caso contrario
     private boolean aniadirMesa(String nombre,int puerto){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
@@ -479,6 +498,8 @@ public class AdministradorUsuarios extends Thread{
         return aniadida;
     }
 
+    // Devuelve true si el nombre esta registrado, se encuentra en una mesa disponible y esta se ha eliminado correctamente
+    // Devuelve false en caso contrario
     private boolean quitarMesa(String nombre){
         DocumentBuilderFactory dbf = null;
         DocumentBuilder db = null;
